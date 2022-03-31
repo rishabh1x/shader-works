@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SHader WorKS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Karma", sans-serif;
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar (hidden by default) -->
+    <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left"
+        style="display: none; z-index: 2; width: 15%; min-width: 25%" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
+        <a href="#shaders" onclick="w3_close()" class="w3-bar-item w3-button">Shaders</a>
+        <a href="#footer" onclick="w3_close()" class="w3-bar-item w3-button">Tags</a>
+    </nav>
+
+    <!-- Top menu -->
+    <div class="w3-top">
+        <div class="w3-white w3-xlarge" style="max-width: 1200px; margin: auto">
+            <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
+            <div class="w3-right w3-padding-16">Mail</div>
+            <div class="w3-center w3-padding-16">Destiny 2 - SHader WorKS</div>
+        </div>
+    </div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main w3-content w3-padding" style="max-width: 1200px; margin-top: 100px">
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 w3-center" id="shaders">
+            <% 
+                var currentPage = 0;
+                let topRowItemsMax = currentPage + 4;
+            %>
+            <% for( let index = currentPage; index < topRowItemsMax; index++ ) { %>
+            <div class="w3-quarter">
+                <img class="w3-icon" src="https://www.bungie.net/<%= shaders[index].displayProperties.icon %>"
+                    alt="<%= shaders[index].displayProperties.name %>" />
+                <h3>
+                    <%= shaders[index].displayProperties.name %>
+                </h3>
+                <p>
+                    <%= shaders[index].sourceString %>
+                </p>
+            </div>
+            <% } %>
+        </div>
+
+        <!-- Second Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 w3-center">
+            <%
+                let middleRowItemsMax = topRowItemsMax + 4;
+            %>
+            <% for( let index = topRowItemsMax; index < middleRowItemsMax; index++ ) { %>
+            <div class="w3-quarter">
+                <img class="w3-icon" src="https://www.bungie.net/<%= shaders[index].displayProperties.icon %>"
+                    alt="<%= shaders[index].displayProperties.name %>" />
+                <h3><%= shaders[index].displayProperties.name %></h3>
+                <p>
+                    <%= shaders[index].sourceString %>
+                </p>
+            </div>
+            <% } %>
+        </div>
+
+        <!-- Third Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 w3-center">
+            <%
+                let bottomRowItemsMax = middleRowItemsMax + 4;
+            %>
+            <% for( let index = middleRowItemsMax; index < bottomRowItemsMax; index++ ) { %>
+            <div class="w3-quarter">
+                <img class="w3-icon" src="https://www.bungie.net/<%= shaders[index].displayProperties.icon %>"
+                    alt="<%= shaders[index].displayProperties.name %>" />
+                <h3><%= shaders[index].displayProperties.name %></h3>
+                <p>
+                    <%= shaders[index].sourceString %>
+                </p>
+            </div>
+            <% } %>
+        </div>
+
+        <!-- Pagination -->
+        <div class="w3-center w3-padding-32 page-controller">
+            <form action="/" method="post" id="page-form">
+                <div class="w3-bar">
+                    <a href="#" onclick="pageClick('p');" class="w3-bar-item w3-button w3-hover-black">«</a>
+
+                    <a href="#" onclick="pageClick(1);" class="w3-bar-item w3-button w3-hover-black <%= page+1 === 1 ? "w3-black" : '' %>">1</a>
+                    <a href="#" onclick="pageClick(2);" class="w3-bar-item w3-button w3-hover-black <%= page+1 === 2 ? 'w3-black' : '' %>">2</a>
+                    <a href="#" onclick="pageClick(3);" class="w3-bar-item w3-button w3-hover-black <%= page+1 === 3 ? 'w3-black' : '' %>">3</a>
+                    <a href="#" onclick="pageClick(4);" class="w3-bar-item w3-button w3-hover-black <%= page+1 === 4 ? 'w3-black' : '' %>">4</a>
+                    <a href="#" onclick="pageClick(5);" class="w3-bar-item w3-button w3-hover-black <%= page+1 === 5 ? 'w3-black' : '' %>">5</a>
+                    
+                    <a href="#" onclick="pageClick('n');" class="w3-bar-item w3-button w3-hover-black">»</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-row-padding w3-padding-32 w3-select" id="footer">
+            <div class="w3-half">
+                <h3>FOOTER</h3>
+                <p>
+                    Praesent tincidunt sed tellus ut rutrum. Sed vitae justo
+                    condimentum, porta lectus vitae, ultricies congue gravida diam non
+                    fringilla.
+                </p>
+                <p>
+                    Powered by
+                    <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+                </p>
+            </div>
+
+            <!--random tags to search -->
+            <div class="w3-half w3-serif">
+                <h3>SHADER TAGS</h3>
+                <p>
+                    <span class="w3-tag w3-black w3-margin-bottom">RED</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">BLUE</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">GREEN</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">TWO-TONE</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">DARK</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">BRIGHT</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">GLOW</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">RITUAL</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">RARE</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">LEGENDARY</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">DESTINATIONS</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">SUNSET</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">NEW</span>
+                    <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">RAIDS</span>
+                </p>
+            </div>
+        </footer>
+
+        <hr>
+        <div class="w3-center">
+            <!-- add copyright placeholders in paragraph tag for the name Rishabh1x -->
+            <p>&copy; <a href="https://github.com/rishabh1x">Rishabh Sharma</a></p>
+
+            <!-- add copyright placeholders for bungie.net and destiny 2 -->
+            <p>&copy; <a href="https://www.bungie.net/en/">Bungie.net</a> &amp; <a href="https://www.bungie.net/7/en/destiny/newlight">Destiny 2</a></p>
+        </div>
+        <!-- End page content -->
+    </div>
+
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+
+        function pageClick(pageId) {
+            //call form action to change page
+            console.log("pageClick: " + pageId);
+            post("/", {"pageId":pageId});
+        }
+
+        /**
+         * sends a request to the specified url from a form. this will change the window location.
+         * @param {string} path the path to send the post request to
+         * @param {object} params the parameters to add to the url
+         * @param {string} [method=post] the method to use on the form
+         */
+        function post(path, params, method = 'post') {
+
+            // The rest of this code assumes you are not using a library.
+            // It can be made less verbose if you use one.
+            const form = document.createElement('form');
+            form.method = method;
+            form.action = path;
+
+            for (const key in params) {
+                if (params.hasOwnProperty(key)) {
+                    const hiddenField = document.createElement('input');
+                    hiddenField.type = 'hidden';
+                    hiddenField.name = key;
+                    hiddenField.value = params[key];
+
+                    form.appendChild(hiddenField);
+                }
+            }
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
+</body>
+
+</html>

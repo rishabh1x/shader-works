@@ -1993,6 +1993,13 @@ a {
   border-color: #e7ffff !important
 }
 
+/* image icons */
+.w3-icon {
+  width: 96px;
+  height: 96px;
+  text-align: center
+}
+
 /* devanagari */
 @font-face {
   font-family: 'Karma';
