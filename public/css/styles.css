@@ -338,7 +338,8 @@ a {
 
 .w3-centered tr th,
 .w3-centered tr td {
-  text-align: center
+  text-align: center;
+  vertical-align: middle
 }
 
 .w3-table td,
@@ -1998,6 +1999,21 @@ a {
   width: 96px;
   height: 96px;
   text-align: center
+}
+
+/* page control extended */
+.w3-low-width {
+  width: 3em !important
+}
+
+/* page control extended */
+.w3-half-width {
+  width: 25% !important;
+}
+
+/* slim height */
+.w3-slim {
+  height: 1.5em !important
 }
 
 /* devanagari */
